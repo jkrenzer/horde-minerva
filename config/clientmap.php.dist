@@ -1,0 +1,29 @@
+<?php
+/**
+ * This file is where you map client attributes from Turba to Minerva
+ * invoice client data.
+ *
+ * If Minerva needs the client attribute foo, it will check if there
+ * is a mapping from foo key to foobar. If the mapped key is an
+ * array, it will combine the fields by the delimiter.
+ *
+ * Example 1
+ *      foo => foobar
+ * Foo becomses
+ *      foobar
+ *
+ * Example 2
+ *      foo => array('workAddress', "\n", 'workCity', ' - '
+ *                   'workPostalCode', "\n", 'workCountry');
+ * Foo becomses
+ *      workAddress
+ *      workPostalCode - workCity
+ *      workCountry
+ *
+ * $Horde: incubator/minerva/config/clientmap.php.dist,v 1.5 2006/08/29 19:32:10 duck Exp $
+ */
+
+$clientmap = array();
+$clientmap['postal_address'] = array('company', "\n", 'workAddress', "\n\n", 'workPostalCode', ' ', 'workCity');
+$clientmap['address'] = array('workAddress', "\n", 'workPostalCode', ' ', 'workCity');
+$clientmap['name'] = array('company');

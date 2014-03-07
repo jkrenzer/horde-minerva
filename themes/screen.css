@@ -1,0 +1,120 @@
+
+.disabled, input:disabled {
+    color: black;
+    border: none;
+    background: transparent;
+    text-align: right;
+}
+
+.postError {
+    border: 2px red solid;
+    background: yellow;
+    width: 100%;
+    height: 20px;
+    margin: 5px;
+    padding: 10px;
+}
+
+.pager {
+    text-align: center;
+}
+
+/* Autocomplete styles. */
+.autocomplete {
+    background: #f4f4f4;
+    border: 1px solid #d4d4d4;
+    position: absolute;
+    padding: 2px 2px 2px 2px;
+}
+.autocomplete ul {
+    margin: 1px;
+    padding: 1px;
+    list-style-type: none;
+}
+.autocomplete ul li {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #000;
+}
+.autocomplete ul .selected {
+    background: gray;
+    color: #fff;
+}
+.addressTr {
+    width: 580px;
+}
+.addressTr span {
+    vertical-align: top;
+}
+
+/* context menu */
+div.context {
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-family: verdana;
+}
+div.context a {
+	display: block;
+	text-decoration: none;
+	cursor: default;
+	outline: none;
+	font-size: 11px;
+}
+.context .separator {
+	height: 1px;
+	padding: 0;
+	overflow: hidden;
+	display: block;
+	font-size: 1px;
+}
+.context ul, .context li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.context li {
+	list-style-position: outside;
+}
+
+
+.context.firefox {
+	width: 12em;
+	background: #F4F5EB;
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #666;
+	border-bottom: 1px solid #666;
+	padding: 2px 0;
+}
+.context.firefox a {
+	color: #555;
+	padding: 4px 15px;
+	margin: 0 2px;
+}
+.context.firefox a:hover {
+	background: #006;
+	color: #fff;
+}
+.context.firefox a.disabled {
+	color: #bbb;
+}
+.context.firefox a.disabled:hover {
+	background: #F4F5EB;
+	color: #bbb;
+}
+.context.firefox .separator {
+	border-bottom: 1px solid #fff;
+	background: #999;
+	margin: 2px 4px;
+}
+
+.selectedRow {
+	background: #F4F5EB;
+	border-top: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+}

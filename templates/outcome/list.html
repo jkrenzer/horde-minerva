@@ -1,0 +1,40 @@
+<div class="header" style="float: right;">
+<a href="<tag:list_url />"><gettext>Reload</gettext></a>
+| <a href="<tag:edit_url />"><gettext>Create</gettext></a>
+| <a href="<tag:export_url />"><gettext>Export</gettext></a>
+</div>
+<div class="header"><tag:title /></div>
+<table id="outcome_invoices" style="width: 100%;" class="striped sortable">
+<thead>
+<tr style="text-align: right;">
+<th class="control"><gettext>Actions</gettext></th>
+<th class="control"><gettext>Id</gettext></th>
+<th class="control"><gettext>Recived</gettext></th>
+<th class="control"><gettext>Due</gettext></th>
+<th class="control"><gettext>Paid</gettext></th>
+<th class="control"><gettext>Company</gettext></th>
+<th class="control"><gettext>Total</gettext></th>
+<th class="control"><gettext>Bank</gettext></th>
+<th class="control"><gettext>Intend</gettext></th>
+</tr>
+</thead>
+<loop:rows>
+    <tr style="text-align: right;">
+    <td nowrap="nowrap"><loop:rows.actions> <tag:rows.actions /> </loop:rows.actions></td>
+    <td><tag:rows.id /></td>
+    <td><tag:rows.recived /></td>
+    <td><tag:rows.due /></td>
+    <td><tag:rows.paid /></td>
+    <td><tag:rows.client_name /></td>
+    <td><tag:rows.total /></td>
+    <td><tag:rows.bank /></td>
+    <td><tag:rows.intend /></td>
+    </tr>
+</loop:rows>
+</table>
+
+<div class="control">
+    <gettext>Total</gettext>: <tag:total />
+    <gettext>Total tax</gettext>: <tag:total_tax />
+</div>
+<div class="pager"><tag:pager /></div>

@@ -1,0 +1,18 @@
+<?php
+/**
+ * Set up days, when we do not work
+ *
+ * 0 is the key of an array containing weekends. The next keys are
+ * month numbers containing days in that month that are holidays.
+ *
+ * $Horde: incubator/minerva/config/holidays.php.dist,v 1.3 2009/01/19 19:03:35 mrubinsk Exp $
+ */
+
+$holidays = array();
+
+// Weekend days.
+require_once 'Horde/Date.php';
+$holidays[0] = array(Horde_Date::DATE_SATURDAY, Horde_Date::DATE_SUNDAY);
+
+// Example: January 3rd is a holiday.
+$holidays[1] = array(3);

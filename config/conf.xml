@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!-- $Horde: incubator/minerva/config/conf.xml,v 1.21 2007/10/07 03:59:47 chuck Exp $ -->
+<configuration>
+
+<configtab name="finance" desc="Invoices generation">
+ <configsection name="finance">
+   <configlist name="currencies" desc="Which currencies to use (separate currency names with commas)">EUR,USD</configlist>
+   <configstring name="resellers" required="false" desc="If you want to use the resellers system, specify the Turba datasource name for resellers">resellers</configstring>
+   <configboolean name="send_copy" desc="Send a copy of every email to ourselves?">true</configboolean>
+   <configboolean name="reset" desc="Reset counting every year?">true</configboolean>
+   <configmultienum name="export_formats" desc="Allowed export types">APP,CSV,OFX,SWIFT,TSV,XML
+     <values>
+       <value desc="APP">APP</value>
+       <value desc="CSV">CSV</value>
+       <value desc="OFX">OFX</value>
+       <value desc="SWIFT">SWIFT</value>
+       <value desc="TSV">TSV</value>
+       <value desc="XML">XML</value>
+     </values>
+  </configmultienum>
+   <configboolean name="payment_notifies" desc="Allow late payment notices?" required="false">false</configboolean>
+ </configsection>
+</configtab>
+
+<configtab name="convert" desc="Document conversion">
+ <configsection name="convert">
+   <configstring name="template_path" desc="Where templates are located? Defaults to Minervas's template directory." required="false"></configstring>
+   <configstring name="save_path" desc="Where to save invoice papers. Defaults to Horde's temporary directory." required="false"></configstring>
+   <configswitch name="driver" desc="What program we use?">htmldoc
+     <case name="htmldoc" desc="HTMLDOC">
+       <configstring name="program_path" desc="Path to program executable." >/usr/bin/htmldoc</configstring>
+       <configstring name="page_size" desc="Page size: letter, a4, WxH {in,cm,mm}, etc." >a4</configstring>
+       <configstring name="charset" desc="Charset (cp-874...1258,iso-8859-1...8859-15,koi8-r)." >cp-1250</configstring>
+     </case>
+  </configswitch>
+  <configlist name="types" desc="File types to allow (separate types with commas)">html, pdf</configlist>
+  </configsection>
+</configtab>
+
+<configtab name="storage" desc="Storage System Settings">
+ <configsection name="storage">
+  <configswitch name="driver" desc="What storage driver should we use?">sql
+   <case name="sql" desc="SQL">
+    <configsection name="params">
+     <configsql switchname="driverconfig">
+     </configsql>
+    </configsection>
+   </case>
+  </configswitch>
+ </configsection>
+</configtab>
+
+<configtab name="recurrence" desc="Recurrence Settings">
+  <configsection name="recurrence">
+    <configboolean name="skip_holiday" desc="If the recurrence occurs on a holiday, should we alter the date to 
+                   the next working day or skip it?">true</configboolean>
+ </configsection>
+</configtab>
+
+<configtab name="garph" desc="Graph">
+  <configsection name="graph">
+    <configstring name="font_file" desc="Font file to use?">/usr/share/fonts/TTF/verdana.ttf</configstring>
+  </configsection>
+</configtab>
+
+<configtab name="menu" desc="Menu Settings">
+  <configsection name="menu">
+    <configmultienum name="apps" desc="Select any applications that should be
+                     linked in Minerva's menu">
+      <values>
+        <configspecial name="list-horde-apps" />
+      </values>
+    </configmultienum>
+  </configsection>
+</configtab>
+
+</configuration>

@@ -1,0 +1,167 @@
+<?php
+/**
+ * $Horde: incubator/minerva/config/prefs.php.dist,v 1.34 2009/10/01 07:17:54 duck Exp $
+ */
+
+$prefGroups['list'] = array(
+    'column' => _("Listings"),
+    'label' => _("Invoice display"),
+    'desc' => _("Set invoice display parameters."),
+    'members' => array('invoice_perpage', 'invoice_initial_page'));
+
+$prefGroups['clients'] = array(
+    'column' => _("Listings"),
+    'label' => _("Clients details"),
+    'desc' => _("Set clients display parameters."),
+    'members' => array('clients_fields', 'clients_perpage'));
+
+$prefGroups['outcome'] = array(
+    'column' => _("Listings"),
+    'label' => _("Outcome details"),
+    'desc' => _("Set outcome sorting parameters"),
+    'members' => array('outcome_perpage', 'outcome_charset'));
+
+$prefGroups['invoice'] = array(
+    'column' => _("Creation"),
+    'label' => _("Invoice editing parameters"),
+    'desc' => _("Set invoice parameters."),
+    'members' => array('invoice_place', 'invoice_name', 'invoice_signature',
+                       'invoice_expire', 'invoice_expire_input', 'notification_cost'));
+
+$prefGroups['documents'] = array(
+    'column' => _("Creation"),
+    'label' => _("Documents"),
+    'desc' => _("Set documents editing parameters."),
+    'members' => array('richtext'));
+
+if (!empty($GLOBALS['conf']['alarms']['driver'])) {
+    $prefGroups['recurrence'] = array(
+        'column' => _("Creation"),
+        'label' => _("Recurrence"),
+        'desc' => _("Set recurrence parameters"),
+        'members' => array('recurrence_notify_before'));
+}
+
+// Invoice editing parameters
+$_prefs['invoice_initial_page'] = array(
+    'value' => 'income',
+    'locked' => false,
+    'shared' => false,
+    'type' => 'enum',
+    'enum' => array('income' => _("Income"),
+                    'outcome' => _("Outcome")),
+    'desc' => _("Default page view."),
+);
+
+$_prefs['invoice_place'] = array(
+    'value' => '',
+    'locked' => false,
+    'shared' => false,
+    'type' => 'text',
+    'desc' => _("Default invoice place/city from where inoices are published."),
+);
+
+$_prefs['invoice_name'] = array(
+    'value' => '%d/' . date('y'),
+    'locked' => true,
+    'shared' => false,
+    'type' => 'text',
+    'desc' => _("Default invoice number generation string."),
+);
+
+$_prefs['invoice_signature'] = array(
+     'value' => '-------- Minerva Invoice System ---------',
+     'locked' => false,
+     'shared' => false,
+     'type' => 'textarea',
+     'desc' => _("Signature to append to emails."));
+
+$_prefs['invoice_expire'] = array(
+     'value' => 8,
+     'locked' => false,
+     'shared' => false,
+     'type' => 'number',
+     'desc' => _("Default expire date."));
+
+$_prefs['invoice_expire_input'] = array(
+     'value' => 'both',
+     'locked' => false,
+     'shared' => false,
+     'type' => 'enum',
+    'enum' => array('both' => _("Days and date selection"),
+                    'date' => _("Date only"),
+                    'days' => _("Days only")),
+     'desc' => _("Expire input type."));
+
+$_prefs['notification_cost'] = array(
+     'value' => 500,
+     'locked' => false,
+     'shared' => false,
+     'type' => 'number',
+     'desc' => _("Default notification cost."));
+
+// Invoice listing parameters
+$_prefs['invoice_perpage'] = array(
+     'value' => 10,
+     'locked' => false,
+     'shared' => false,
+     'type' => 'number',
+     'desc' => _("How many invoices to display per page."));
+
+// Client attributes
+$_prefs['clients_fields'] = array('type' => 'special');
+
+$_prefs['clients_perpage'] = array(
+     'value' => 10,
+     'locked' => false,
+     'shared' => false,
+     'type' => 'number',
+     'desc' => _("How many clients to display per page."));
+
+// Outcome options
+$_prefs['outcome_perpage'] = array(
+     'value' => 10,
+     'locked' => false,
+     'shared' => false,
+     'type' => 'number',
+     'desc' => _("How many outcome to display per page."));
+
+$_prefs['outcome_charset'] = array(
+    'value' => 'UTF-8',
+    'locked' => false,
+    'shared' => false,
+    'type' => 'enum',
+    'enum' => Horde_Nls::$config['encodings'],
+    'desc' => _("Default outcome export charset."),
+);
+
+$_prefs['recurrence_notify_before'] = array(
+     'value' => 2,
+     'locked' => false,
+     'shared' => false,
+     'type' => 'number',
+     'desc' => _("The number of days to notify me before invoice recurrence occurs.")
+);
+
+// Types to show in the listTimeObect call
+$_prefs['calendar_lto'] = array(
+    'value' => 'a:2:{i:0;s:7:"outcome";i:1;s:10:"recurrence";}',
+    'locked' => false,
+    'shared' => false,
+    'type' => 'multienum',
+    'enum' => array('incomes' => _("Income"),
+                    'outcomes' => _("Outcome"),
+                    'recurrences' => _("Recurrences")),
+    'desc' => _("What type of invoices to so show in the calendar.")
+);
+
+$_prefs['richtext'] = array(
+    'value' => 'fckeditor',
+    'locked' => false,
+    'shared' => false,
+    'type' => 'enum',
+    'enum' => array('none' => _("None"),
+		    'xinha' => _("Xinha"),
+                    'fckeditor' => _("FCKeditor")),
+    'desc' => _("Which editor do you prefer?")
+);

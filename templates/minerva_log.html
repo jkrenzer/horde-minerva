@@ -1,0 +1,29 @@
+<div class="header rightFloat">
+<a href="<tag:url />page_minerva_log=<tag:page />&amp;action=search"><gettext>Search</gettext></a>
+</div>
+<h1 class="header"><tag:title /></h1>
+<table id="minerva_log" class="striped sortable" style="width: 100%;">
+<thead>
+<tr class="control">
+<th><gettext>Invoice</gettext></th>
+<th><gettext>Date</gettext></th>
+<th><gettext>User</gettext></th>
+<th><gettext>Type</gettext></th>
+<th><gettext>Host</gettext></th>
+<th><gettext>Data</gettext></th>
+</tr>
+</thead>
+<tbody>
+<loop:rows>
+<tr>
+<td><tag:rows.invoice_id /></td>
+<td><tag:rows.log_time /></td>
+<td><tag:rows.horde_uid /></td>
+<td><tag:rows.log_type /></td>
+<td><tag:rows.log_host /></td>
+<td><a href="dump.php?log_id=<tag:rows.log_id />" target="_blank"><tag:rows.log_data /></a></td>
+</tr>
+</loop:rows>
+</tbody>
+</table>
+<tag:pager />

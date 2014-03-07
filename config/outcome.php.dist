@@ -1,0 +1,88 @@
+<?php
+/**
+ * Invoice Rdo metadata
+ *
+ * $Horde: incubator/minerva/config/outcome.php.dist,v 1.20 2009/10/17 11:16:22 duck Exp $
+ */
+
+$data = array();
+
+$data['id'] = array(
+    'humanName' => _('Id'),
+    'help' => 'id'
+);
+
+require_once dirname(__FILE__) . '/../lib/Minerva.php';
+$data['bank'] = array(
+    'humanName' => _("Bank"),
+    'type' => 'enum',
+    'params' => array('enum' => Minerva::getBankAccounts(), 'prompt' => true));
+
+$data['recived'] = array(
+    'humanName' => _("Received"),
+    'type' => 'monthdayyear',
+    'help' => 'recived',
+    'params' => array('', '', true, '%Y-%m-%d')
+);
+
+$data['paid'] = array(
+    'humanName' => _("Paid"),
+    'type' => 'monthdayyear',
+    'params' => array('', '', true, '%Y-%m-%d', '%Y-%m-%d'),
+    'help' => 'paid',
+    'required' => false
+);
+
+$data['due'] = array(
+    'humanName' => _("Due"),
+    'type' => 'monthdayyear',
+    'help' => 'due',
+    'params' => array('', '', true, '%Y-%m-%d'));
+
+require_once MINERVA_BASE . '/lib/UI/Clients.php';
+Horde::addScriptFile('popup.js', 'horde');
+$client_url = sprintf("<a href=\"#\" onClick=\"Horde.popup({ url: '%s' })\">%s</a>", Horde::applicationUrl('client_selection.php'), _("Select client"));
+$data['client_name'] = array(
+    'humanName' => _("Company"),
+    'type' => 'longtext',
+    'help' => 'company',
+    'description' => $client_url . Horde_UI_Clients::getAutocompleter('client_name', 'name'),
+    'params' => array('rows' => 5, 'cols' => 50)
+);
+
+$data['client_vat'] = array(
+    'humanName' => _("Vat"),
+    'help' => 'vat',
+    'description' => Horde_UI_Clients::getAutocompleter('client_vat', 'vat'),
+    'params' => array('', 10, 10)
+);
+
+$data['total'] = array(
+    'humanName' => _("Total"),
+    'type' => 'currency',
+    'help' => 'total'
+);
+
+$data['intend'] = array(
+    'humanName' => _("Intend"),
+    'type' => 'longtext',
+    'help' => 'intend',
+    'params' => array('rows' => 5, 'cols' => 50)
+);
+
+$data['total_tax'] = array(
+    'humanName' => _("Total tax"),
+    'type' => 'currency',
+    'help' => 'total_tax'
+);
+
+$data['refference'] = array(
+    'humanName' => _("Refference")
+);
+
+$data['tag'] = array(
+    'humanName' => _("Tag"),
+    'type' => 'enum',
+    'params' => array('enum' => Minerva::getTags(), 'prompt' => true)
+);
+

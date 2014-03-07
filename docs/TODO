@@ -1,0 +1,44 @@
+ ================================
+ Minerva Development TODO List
+================================
+
+:Last update:   $Date: 2009/04/13 17:11:00 $
+:Revision:      $Revision: 1.49 $
+: $Horde: incubator/minerva/docs/TODO,v 1.49 2009/04/13 17:11:00 duck Exp $
+
+Minerva
+- content menu on invoice list to change status and perform other single invoice tasks
+- compensation
+- filter out already assigned clients in reseller list
+- Find a better (more dynamic) solution for Minerva_Driver_sql::buildInvoicesQuery()
+- extend invoice log for handle attributes
+- create scripts for mass export to any format
+- create scripts for send reports by email
+- dynamic sort invoice list
+- create an general print page contain a catalogue of print possibilities
+- create an general export page contain a catalogue of export possibilities
+- Alpha icons for invoice action, not hide them
+- lock statuses / types with documents assigned and allow to edit key
+- Online template editing
+- Add convertion from proforma to invoice in invoce log
+- script to atomaticlay notify users that proforma in going to get overdue
+- Quantity units (kilos, parts...)
+- Enter due date instead of due days
+- Custom number of decimals for quantity, final price etc
+
+Outcomes
+- partial (avanse) payment
+- add number of comments in invoice list
+- link with Horde_Taxes
+- list by periods
+- recurrence
+- add parameters selections for SWIFT and other export fromats
+- export search results
+
+Late payment notification
+- track the number of notifications per invoice
+- summarize notifications costs on remaked notifications
+
+Reccurences
+- Export recurrence not just next instance
+- Show all recurrences not just next instance in listTimeObject

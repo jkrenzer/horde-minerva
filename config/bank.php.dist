@@ -1,0 +1,22 @@
+<?php
+/**
+ * Banks Rdo metadata
+ *
+ * $Horde: incubator/minerva/config/bank.php.dist,v 1.7 2008/07/16 11:56:42 duck Exp $
+ */
+
+$data['account'] = array(
+    'humanName' => _("Account"),
+    'params' => array('',
+                                    'size' => 23,
+                                    'maxlength' => 20)
+);
+
+$data['name'] = array(
+    'humanName' => _("Name")
+);
+
+$data['sort'] = array(
+    'humanName' => _("Sort"),
+    'type' => 'int'
+);

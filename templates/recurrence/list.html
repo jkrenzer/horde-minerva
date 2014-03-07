@@ -1,0 +1,51 @@
+<div style="float: right;" class="header">
+<a href="<tag:edit_url />0"><gettext>Create</gettext></a>
+</div>
+<h1 class="header"><tag:title /></h1>
+<table style="width: 100%;" class="striped sortable" id="recurrence_list">
+<thead>
+    <tr style="text-align: left;">
+    <th><gettext>Actions</gettext></th>
+    <th><gettext>Invoice</gettext></th>
+    <th><gettext>Client</gettext></th>
+    <th><gettext>Description</gettext></th>
+    <th><gettext>Value</gettext></th>
+    <th><gettext>Copy</gettext></th>
+    <th><gettext>Start</gettext></th>
+    <th><gettext>Interval</gettext></th>
+    <th><gettext>Next</gettext></th>
+    <th><gettext>User</gettext></th>
+    </tr>
+</thead>
+<tbody>
+<loop:rows>
+<tr>
+    <td class="nowrap">
+    <a href="<tag:edit_url /><tag:rows.invoice_id />"><img src="<tag:img_dir />/edit.png" alt="<gettext>Edit</gettext>" title="<gettext>Edit</gettext>" /></a> 
+    <a href="<tag:delete_url /><tag:rows.invoice_id />"><img src="<tag:img_dir />/delete.png" alt="<gettext>Delete</gettext>" title="<gettext>Delete</gettext>" /></a> 
+    <a href="<tag:invoice_url /><tag:rows.invoice_id />"><img src="<tag:img_dir />/tick.png" alt="<gettext>Compose</gettext>" title="<gettext>Compose</gettext>" /></a> 
+    </td>
+    <td><tag:rows.invoice_name /></td>
+    <td><tag:rows.name /></td>
+    <td><tag:rows.description /></td>
+    <td style="text-align: right;"><tag:rows.total /></td>
+    <td>
+        <tag:rows.articles />
+        <tag:rows.client />
+    </td>
+    <td><tag:rows.rstart /></td>
+    <td><tag:rows.rinterval /></td>
+    <td><tag:rows.next /></td>
+    <td><tag:rows.horde_uid /></td>
+</tr>
+</loop:rows>
+</tbody>
+</table>
+
+<br />
+<br />
+
+<gettext>Invoices</gettext>: <tag:count /><br />
+<gettext>Total bare</gettext>: <tag:total_bare /><br />
+<gettext>Total tax</gettext>: <tag:total_tax /><br />
+<strong><gettext>Total</gettext>: <tag:total /></strong>
